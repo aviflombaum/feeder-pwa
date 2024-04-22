@@ -1,0 +1,15 @@
+<!-- app/views/feeds/show.html.erb -->
+<div class="max-w-md mx-auto px-4 py-8">
+  <h1 class="text-2xl font-bold mb-4"><%= @feed.title %></h1>
+  <p class="mb-6 text-gray-600"><%= @feed.description %></p>
+  <div class="space-y-4">
+    <% @feed.items.each do |item| %>
+      <div class="bg-white shadow rounded-lg p-4">
+        <a href="<%= item_path(item) %>" class="text-lg font-medium text-blue-600 hover:text-blue-800">
+          <%= item.title %>
+        </a>
+        <p class="text-sm text-gray-600 mt-2"><%= item.content.truncate(100) %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="max-w-md mx-auto px-4 py-8">
+  <h1 class="text-2xl font-bold mb-4">Feeds</h1>
+  <div class="space-y-4">
+    <% @feeds.each do |feed| %>
+      <div class="bg-white shadow rounded-lg p-4">
+        <a href="<%= feed_path(feed) %>" class="text-lg font-medium text-blue-600 hover:text-blue-800">
+          <%= feed.title %>
+        </a>
+        <p class="text-sm text-gray-600"><%= feed.description %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<button id="send">Send</button>
+
+<script>
+  document.addEventListener("turbo:load", async function(){
+    const notification = document.querySelector('#notification');
+    const sendButton = document.querySelector('#send');
+    const registration = await navigator.serviceWorker.getRegistration();
+
+    const sendNotification = async () => {
+      console.log("Test")
+      if(Notification.permission === 'granted') {
+        showNotification("TEst");
+      }
+      else {
+        if(Notification.permission !== 'denied') {
+          const permission = await Notification.requestPermission();
+
+          if(permission === 'granted') {
+            showNotification("Test");
+          }
+        }
+      }
+      };
+
+      const showNotification = body => {
+      const title = 'What PWA Can Do Today';
+
+      const payload = {
+        body
+      };
+
+      if('showNotification' in registration) {
+        registration.showNotification(title, payload);
+      }
+      else {
+        new Notification(title, payload);
+      }
+    };
+
+    sendButton.addEventListener('click', sendNotification);
+  })
+</script>
