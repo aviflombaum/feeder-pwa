@@ -8,7 +8,7 @@
         <a href="<%= item_path(item) %>" class="text-lg font-medium text-blue-600 hover:text-blue-800">
           <%= item.title %>
         </a>
-        <p class="text-sm text-gray-600 mt-2"><%= item.content.truncate(100) %></p>
+        <p class="text-sm text-gray-600 mt-2"><%= item.content&.truncate(100) %></p>
       </div>
     <% end %>
   </div>
