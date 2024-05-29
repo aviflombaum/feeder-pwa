@@ -132,13 +132,13 @@ GEM
     date (3.3.4)
     drb (2.2.1)
     erubi (1.12.0)
-    faker (3.3.1)
+    faker (3.4.1)
       i18n (>= 1.8.11, < 2)
     ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
     http-2 (0.11.0)
-    i18n (1.14.4)
+    i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
@@ -334,7 +334,7 @@ PLATFORMS
 DEPENDENCIES
   apnotic (~> 1.7)
   bootsnap
-  faker (~> 3.3)
+  faker (~> 3.4)
   importmap-rails
   jbuilder
   kaminari!
