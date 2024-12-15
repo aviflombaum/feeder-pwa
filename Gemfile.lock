@@ -115,7 +115,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    apnotic (1.7.1)
+    apnotic (1.7.2)
       connection_pool (~> 2)
       net-http2 (>= 0.18.3, < 2)
     ast (2.4.2)
